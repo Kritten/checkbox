@@ -21,11 +21,11 @@ class Kritten_Checkbox_Group
 
 	on_change(event)
 	{
-		if($(`${event.data.m_selector_checkboxes}:checked`).length == event.data.m_list_checkboxes.length)
+		if($(`${event.data.m_selector_checkboxes}:checked:not([disabled])`).length == event.data.m_list_checkboxes.length)
 		{
-			event.data.check_checkboxes($(event.data.m_selector_checkboxes_main));
+			event.data.check_checkboxes($(`${event.data.m_selector_checkboxes_main}:not([disabled])`));
 		} else {
-			event.data.uncheck_checkboxes($(event.data.m_selector_checkboxes_main));
+			event.data.uncheck_checkboxes($(`${event.data.m_selector_checkboxes_main}:not([disabled])`));
 		}
 	}
 
@@ -33,11 +33,11 @@ class Kritten_Checkbox_Group
 	{
 		if($(this).prop('checked'))
 		{
-			event.data.check_checkboxes($(event.data.m_selector_checkboxes));
-			event.data.check_checkboxes($(event.data.m_selector_checkboxes_main));
+			event.data.check_checkboxes($(`${event.data.m_selector_checkboxes}:not([disabled])`));
+			event.data.check_checkboxes($(`${event.data.m_selector_checkboxes_main}:not([disabled])`));
 		} else {
-			event.data.uncheck_checkboxes($(event.data.m_selector_checkboxes));
-			event.data.uncheck_checkboxes($(event.data.m_selector_checkboxes_main));
+			event.data.uncheck_checkboxes($(`${event.data.m_selector_checkboxes}:not([disabled])`));
+			event.data.uncheck_checkboxes($(`${event.data.m_selector_checkboxes_main}:not([disabled])`));
 		}
 	}
 
@@ -77,7 +77,7 @@ class Kritten_Checkbox_Manager
 	{
 		const that = this;
 
-		$(`[data-${this.m_name_data_checkbox}]`).each(function(i, element) {
+		$(`[data-${this.m_name_data_checkbox}]:not([disabled])`).each(function(i, element) {
 			const checkbox = $(element);
 
 			let name = checkbox.data(that.m_name_data_checkbox);
@@ -94,7 +94,7 @@ class Kritten_Checkbox_Manager
 			checkbox_group.add_checkbox(checkbox);
 		});
 
-		$(`[data-${this.m_name_data_checkbox_main}]`).each(function(i, element) {
+		$(`[data-${this.m_name_data_checkbox_main}]:not([disabled])`).each(function(i, element) {
 			const checkbox = $(element);
 
 			let name = checkbox.data(that.m_name_data_checkbox_main);
