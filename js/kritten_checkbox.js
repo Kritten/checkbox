@@ -31,6 +31,7 @@ class Kritten_Checkbox_Group
 
 	on_change_main(event)
 	{
+		t = performance.now();
 		if($(this).prop('checked'))
 		{
 			event.data.check_checkboxes($(`${event.data.m_selector_checkboxes}:not([disabled])`));
@@ -39,6 +40,7 @@ class Kritten_Checkbox_Group
 			event.data.uncheck_checkboxes($(`${event.data.m_selector_checkboxes}:not([disabled])`));
 			event.data.uncheck_checkboxes($(`${event.data.m_selector_checkboxes_main}:not([disabled])`));
 		}
+		console.log(performance.now() - t)
 	}
 
 	check_checkboxes(list_checkboxes)
@@ -70,6 +72,7 @@ class Kritten_Checkbox_Manager
 		this.m_name_data_checkbox_main = 'kritten_checkbox_main';
         this.m_name_checkbox_default = 'checkbox-default';
 		this.m_map_checkbox = new Map();
+
         this.init();
 	}
 
@@ -125,10 +128,11 @@ class Kritten_Checkbox_Manager
 		return checkbox_group;
 	}
 }
-
 let kritten_checkbox_manager = undefined
 try {
 	kritten_checkbox_manager = new Kritten_Checkbox_Manager(kritten_checkbox_settings);
 } catch(ex) {
+	t = performance.now();
 	kritten_checkbox_manager = new Kritten_Checkbox_Manager();
+	console.log(performance.now() - t)
 }
