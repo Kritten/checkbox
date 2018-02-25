@@ -36,7 +36,6 @@ class Kritten_Checkbox_Group
 
 	on_change_main(event)
 	{
-		t = performance.now();
 		if($(this).prop('checked'))
 		{
 			event.data.check_checkboxes($(`${event.data.m_selector_checkboxes}:not([disabled])`));
@@ -45,7 +44,6 @@ class Kritten_Checkbox_Group
 			event.data.uncheck_checkboxes($(`${event.data.m_selector_checkboxes}:not([disabled])`));
 			event.data.uncheck_checkboxes($(`${event.data.m_selector_checkboxes_main}:not([disabled])`));
 		}
-		console.log(performance.now() - t)
 	}
 
 	check_checkboxes(list_checkboxes)
@@ -140,7 +138,5 @@ let kritten_checkbox_manager = undefined
 try {
 	kritten_checkbox_manager = new Kritten_Checkbox_Manager(kritten_checkbox_settings);
 } catch(ex) {
-	t = performance.now();
 	kritten_checkbox_manager = new Kritten_Checkbox_Manager();
-	console.log(performance.now() - t)
 }
