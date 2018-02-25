@@ -1,3 +1,8 @@
+function for_each(selector, func)
+{
+    Array.prototype.forEach.call(document.querySelectorAll(selector), func);
+}
+
 class Kritten_Checkbox_Group
 {
 	constructor(passed_name, passed_kritten_checkbox_manager)
