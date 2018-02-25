@@ -31,7 +31,7 @@ Tested with the following browser versions (other browsers or versions will most
 4. Thats it!
 
 ## Usage
-## Multiple checkbox groups
+### Multiple checkbox groups
 Simply add the same value to each 'kritten_checkbox' and 'kritten_checkbox_main' data attribute group to distinguish the different checkbox groups:
 ```html
 <!-- First group -->
