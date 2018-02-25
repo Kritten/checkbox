@@ -110,13 +110,6 @@ class Kritten_Checkbox_Manager
             const checkbox = element;
             const name_data_checkbox = that.m_name_data_checkbox;
             let name = checkbox.dataset[name_data_checkbox];
-        
-            if(name == '' || name == undefined)
-            {
-                name = that.m_name_checkbox_default;
-                checkbox.dataset[name_data_checkbox] = name;
-                checkbox.setAttribute(`data-${that.m_name_data_checkbox}`, name);
-            }
 
             const checkbox_group = that.get_or_create_checkbox_group(name);
 
@@ -128,18 +121,12 @@ class Kritten_Checkbox_Manager
 
             const name_data_checkbox_main = that.m_name_data_checkbox_main;
             let name = checkbox.dataset[name_data_checkbox_main];
-        
-            if(name == '' || name == undefined)
-            {
-                name = that.m_name_checkbox_default;
-                checkbox.dataset[name_data_checkbox_main] = name;
-                checkbox.setAttribute(`data-${that.m_name_data_checkbox_main}`, name);
-            }
 
             const checkbox_group = that.get_or_create_checkbox_group(name);
 
             checkbox_group.add_checkbox_main(checkbox);
         });
+
     }
 
     get_or_create_checkbox_group(name)
