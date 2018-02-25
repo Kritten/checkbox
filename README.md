@@ -34,9 +34,11 @@ Tested with the following browser versions (other browsers or versions will most
 ## Multiple checkbox groups
 Simply add the same value to each 'kritten_checkbox' and 'kritten_checkbox_main' data attribute group to distinguish the different checkbox groups:
 ```html
+<!-- First group -->
 <input type="checkbox" data-kritten_checkbox_main="group1">
 <input type="checkbox" data-kritten_checkbox="group1">
 <input type="checkbox" data-kritten_checkbox="group1">
+<!-- Second group -->
 <input type="checkbox" data-kritten_checkbox_main="group2">
 <input type="checkbox" data-kritten_checkbox="group2">
 <input type="checkbox" data-kritten_checkbox="group2">
